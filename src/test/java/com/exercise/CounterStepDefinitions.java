@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.*;
 public class CounterStepDefinitions {
     private List<String[]> strings = List.of();
     private List<CountResult> results = List.of();
-    private final VowelCounter counter = new VowelCounter();
+    private final StringCounter counter = new StringCounter();
 
     @Given("I add the following strings")
     public void iAddTheStrings(List<Map<Integer, String>> dataTable) {
@@ -32,7 +32,7 @@ public class CounterStepDefinitions {
     public void iCountInTheStrings() throws Exception {
         var l = new ArrayList<CountResult>();
         for(String[] row : strings) {
-            l.addAll(counter.getVowelListWithCount(row));
+            l.addAll(counter.getCountResult(row));
         }
         results = l;
     }
@@ -50,7 +50,7 @@ public class CounterStepDefinitions {
             int consonants = Integer.parseInt(row.get("consonants"));
             assertThat(result.getWord()).isEqualTo(string);
             assertThat(result.getVowelCount()).isEqualTo(vowels);
-            assertThat(0).isEqualTo(consonants);
+            assertThat(result.getConsonantCount()).isEqualTo(consonants);
         }
     }
 
@@ -60,7 +60,7 @@ public class CounterStepDefinitions {
         var l = new ArrayList<CountResult>();
         for(String[] row : strings) {
             assertThat(row).hasSizeGreaterThan(4);
-            assertThatThrownBy(() -> counter.getVowelListWithCount(row)).hasMessage("Extra arguments passed.");
+            assertThatThrownBy(() -> counter.getCountResult(row)).hasMessage("Extra arguments passed.");
         }
         results = l;
     }

@@ -3,8 +3,8 @@ package com.exercise;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        VowelCounter counter = new VowelCounter();
-        var result = counter.getVowelListWithCount(args);
+        StringCounter counter = new StringCounter();
+        var result = counter.getCountResult(args);
         System.out.println(result);
     }
 }

@@ -16,11 +16,11 @@ Feature: As a user I want to be able to add a list of strings
   Scenario: Counting consonants strings
     Given I add the following strings
       |0|1|2|3|
-      |"BceFr"|"Ghtvp"|"xzNMlp"|"kqwSd"|
+      |"BcjFr"|"Ghtvp"|"xzNMlp"|"kqwSd"|
     When I count the vowels and consonants in the strings
     Then I should see the following output
       | string       |vowels|consonants|
-      |"BceFr"       | 0    | 5        |
+      |"BcjFr"       | 0    | 5        |
       |"Ghtvp"       | 0    | 5        |
       |"xzNMlp"      | 0    | 6        |
       |"kqwSd"       | 0    | 5        |
@@ -36,8 +36,9 @@ Feature: As a user I want to be able to add a list of strings
     When I count the vowels and consonants in the strings
     Then I should see the following output
       | string       |vowels|consonants|
-      |"Java"        | 2    | 3        |
-      |"World"       | 1    | 3        |
+      |""            | 0    | 0        |
+      |"Java"        | 2    | 2        |
+      |"World"       | 1    | 4        |
       |"Cucumber"    | 3    | 5        |
       |"Test"        | 1    | 3        |
       |"Scenarios"   | 4    | 5        |
@@ -55,9 +56,9 @@ Feature: As a user I want to be able to add a list of strings
     Then I should see the following output
       | string                                     |vowels|consonants|
       |"Java, World!"                              | 3    | 6        |
-      |"World Cucumber 123"                        | 4    | 8        |
+      |"World Cucumber 123"                        | 4    | 9        |
       |"1Test12 @S!cenarios15 Other"               | 7    | 11       |
-      |"Co12nditi&on 12 An12al@yze, Array. Strings"| 10    | 18      |
+      |"Co12nditi&on 12 An12al@yze, Array. Strings"| 10   | 18       |
 
   Scenario: Adding more the 4 strings
     Given I add the following strings
