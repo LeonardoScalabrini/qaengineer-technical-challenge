@@ -29,7 +29,7 @@ public class CounterStepDefinitions {
     }
 
     @When("I count the vowels and consonants in the strings")
-    public void iCountInTheStrings() {
+    public void iCountInTheStrings() throws Exception {
         var l = new ArrayList<CountResult>();
         for(String[] row : strings) {
             l.addAll(counter.getVowelListWithCount(row));
@@ -48,9 +48,9 @@ public class CounterStepDefinitions {
             String string = row.get("string");
             int vowels = Integer.parseInt(row.get("vowels"));
             int consonants = Integer.parseInt(row.get("consonants"));
-            assertThat(string).isEqualTo(result.getWord());
-            assertThat(vowels).isEqualTo(result.getVowelCount());
-            assertThat(consonants).isEqualTo(0);
+            assertThat(result.getWord()).isEqualTo(string);
+            assertThat(result.getVowelCount()).isEqualTo(vowels);
+            assertThat(0).isEqualTo(consonants);
         }
     }
 

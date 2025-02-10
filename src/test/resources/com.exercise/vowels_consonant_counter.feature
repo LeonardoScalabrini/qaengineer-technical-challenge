@@ -8,7 +8,7 @@ Feature: As a user I want to be able to add a list of strings
     When I count the vowels and consonants in the strings
     Then I should see the following output
       | string       |vowels|consonants|
-      |"AeIoU"       | 6    | 0        |
+      |"AeIoUa"       | 6    | 0        |
       |"uiOa"        | 4    | 0        |
       |"OAe"         | 3    | 0        |
       |"EAiOuAeIoU"  | 10   | 0        |

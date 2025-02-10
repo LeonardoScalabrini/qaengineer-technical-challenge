@@ -2,7 +2,7 @@ package com.exercise;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         VowelCounter counter = new VowelCounter();
         var result = counter.getVowelListWithCount(args);
         System.out.println(result);
