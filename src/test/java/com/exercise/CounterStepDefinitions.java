@@ -53,4 +53,15 @@ public class CounterStepDefinitions {
             assertThat(consonants).isEqualTo(0);
         }
     }
+
+    @Then("I should see the error message")
+    public void iShouldSeeTheErrorMessage() {
+        assertThat(strings).isNotEmpty();
+        var l = new ArrayList<CountResult>();
+        for(String[] row : strings) {
+            assertThat(row).hasSizeGreaterThan(4);
+            assertThatThrownBy(() -> counter.getVowelListWithCount(row)).hasMessage("Extra arguments passed.");
+        }
+        results = l;
+    }
 }
